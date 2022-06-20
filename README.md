@@ -1,2 +1,5 @@
 # pyquant-exercise-2022
-Solution for Python Take home test 
+
+Python Take Home exercise for Bank's 2022 Test for New Quant Dev Candidates.
+
+
