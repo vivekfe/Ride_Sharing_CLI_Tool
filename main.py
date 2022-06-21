@@ -3,6 +3,8 @@ from SalaryCalculator import SalaryCalculator
 import os
 import argparse
 from utils import pretty_print
+import win32file
+
 parser = argparse.ArgumentParser()
 parser.add_argument('--operation_type', help="operation type to be performed", type=str, required=True)
 parser.add_argument('--ride_date', help="date at which ride was taken", type=str, default=None)
@@ -24,9 +26,10 @@ rating = command_args.rating
 period_start = command_args.period_start
 period_end = command_args.period_end
 local_storage = "driver_payments.db"
-import win32file
+
 current_path = os.path.dirname(os.path.abspath(__file__))
 driver_storage = win32file.GetFullPathName(os.path.abspath(os.path.join(current_path, local_storage)))
+
 
 def main():
     pretty_print('Local Storage Initializer.')
@@ -41,9 +44,7 @@ def main():
                                       rating=rating,
                                       period_start=period_start,
                                       period_end=period_end)
+
+
 if __name__ == '__main__':
     main()
-
-#python main.py --operation_type ride_finished --ride_date 2022-01-01 --driver_id 1 --ride_id 1 --time_taken 5  --distance 2
-#python main.py --operation_type rating_submitted --driver_id 1 --ride_id 1 --rating 5
-#python main.py --operation_type driver_payment --driver_id 1 --period_start 2022-01-01 --period_end 2022-01-31

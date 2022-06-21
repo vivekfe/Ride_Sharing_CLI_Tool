@@ -2,6 +2,7 @@ import sqlite3
 import os
 from utils import pretty_print
 
+
 class DatabaseManager:
     def __init__(self, db_name):
         self.db_name = db_name
@@ -35,7 +36,6 @@ class DatabaseManager:
             pretty_print('Database does not exist')
             pretty_print(err)
 
-
     def connect_to_db(self):
         try:
             self.conn = sqlite3.connect(self.db_name)
@@ -45,7 +45,7 @@ class DatabaseManager:
             pretty_print('Database does not exist')
             pretty_print(err)
 
-    def close_connection(self)-> None:
+    def close_connection(self) -> None:
         if self.conn is not None:
             self.conn.close()
             self.conn = None
