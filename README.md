@@ -25,9 +25,11 @@ pip install argparse**
 
 As the challenge provided 3 commands already as test cases, use below 3 commands, which can be run using Pycharm terminal if the working directory is alread set. Below comnmands are replica of commands provided in test case file however with an added feature of providing named arguments from command line.
 
-**python main.py --operation_type ride_finished --ride_date 2022-01-01 --driver_id 1 --ride_id 1 --time_taken 5  --distance 2
-python main.py --operation_type rating_submitted --driver_id 1 --ride_id 1 --rating 5
-python main.py --operation_type driver_payment --driver_id 1 --period_start 2022-01-01 --period_end 2022-01-31**
+**python main.py --operation_type ride_finished --ride_date 2022-01-01 --driver_id 1 --ride_id 1 --time_taken 5  --distance 2**
+
+**python main.py --operation_type rating_submitted --driver_id 1 --ride_id 1 --rating 5**
+
+**python main.py --operation_type driver_payment --driver_id 1 --period_start 2022-01-01 --period_end 2022-01-31**
 
 
 **Tree Structure**
