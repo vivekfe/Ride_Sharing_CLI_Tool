@@ -75,7 +75,7 @@ Whenever the main.py is executed by the user, utility checks if a local storage 
 
 **Unittests**
 
-Project folder also consists of unittests and to run these tests, we can directly use Pycharm's functionality to run the tests. 
+Project folder also consists of unittests and to run these tests, we can directly use Pycharm's functionality to run the tests. One of the caveat's with unit tests is that it can fail if the database does not exist. In such case, if user enters commands in section **# How to use this utility ?**, then few sample enteries will be created and re-execution of the unitests will not result in failure.
 
 
 **Assumptions**
