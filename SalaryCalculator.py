@@ -5,6 +5,7 @@ import win32file
 from utils import pretty_print
 from pathlib import Path
 from typing import Union
+
 pathtype = Union[str, Path]
 
 local_storage: str = "driver_payments.db"
@@ -80,16 +81,18 @@ class SalaryCalculator(object):
             db_manager = DatabaseManager(driver_storage)
             db_connection = db_manager.connect_to_db()
             cur = db_connection.cursor()
-            cur.execute("SELECT COUNT(rating) AS COUNT_HIGH_RATINGS FROM DRIVER_RATING WHERE driver_id=(?) and rating=5 ", (driver_id,))
+            cur.execute(
+                "SELECT COUNT(rating) AS COUNT_HIGH_RATINGS FROM DRIVER_RATING WHERE driver_id=(?) and rating=5 ",
+                (driver_id,))
             rows = cur.fetchall()
-            count_top_rating = rows[0][0]
+            count_top_rating: int = rows[0][0] if rows[0][0] is not None else 0
             cur.execute(
                 "SELECT SUM(distance) AS DISTANCE, SUM(time_taken) AS TIME_TAKEN FROM RIDE_DETAILS WHERE driver_id= (?) AND ride_date >=(?) AND ride_date<=(?)",
                 (driver_id, period_start, period_end))
             rows = cur.fetchall()
-            total_distance_covered: int = rows[0][0]
-            total_minutes_driven: int = rows[0][1]
-            basic_payment: int = total_distance_covered * 1 + (total_minutes_driven / 5) * 1
+            total_distance_covered: int = rows[0][0] if rows[0][0] is not None else 0
+            total_minutes_driven: int = rows[0][1] if rows[0][1] is not None else 0
+            basic_payment: int = total_distance_covered * 1 + int(total_minutes_driven / 5) * 1
             additional_payment: int = count_top_rating
             total_payment: int = basic_payment + additional_payment
             cur.close()
