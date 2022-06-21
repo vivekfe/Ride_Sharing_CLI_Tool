@@ -78,5 +78,6 @@ Whenever the main.py is executed by the user, utility checks if a local storage 
 Project folder also consists of unittests and to run these tests, we can directly use Pycharm's functionality to run the tests. 
 
 
+**Assumptions**
 
-
+Since this DRIVER_RATING table does not have ride details so each time driver's payment calculation is done, it searches for all the instances when driver has been given rating of 5 irrespective of the month so in essence the driver is compensated for all his historical ratings as well each month. The advantage of such system is- better driver's rating is, better his/her compensation which can result increasing the service quality of car hailing company.
