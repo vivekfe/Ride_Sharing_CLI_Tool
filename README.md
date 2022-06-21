@@ -34,7 +34,7 @@ As the challenge provided 3 commands already as test cases, use below 3 commands
 **python main.py --operation_type driver_payment --driver_id 1 --period_start 2022-01-01 --period_end 2022-01-31**
 
 
-**Tree Structure**
+##Tree Structure 
 
 ![image](https://user-images.githubusercontent.com/435616/174783563-515d85c3-1b1a-441b-9294-3b366fb1fcb9.png)
 
@@ -48,14 +48,18 @@ This utility structures the code in a very logical manner.
 
 **SalaryCalculator.py** -> This file consists of a class which implements static methods for performing operations such as insertion of ride details, driver ratings and driver payment's calculation.
 
-**How does Main.py takes care of variable number of arguments**
+##Type Hints 
+
+Type hints have been provided in each class/method of the files in this utility so the code is self explanatory however for any doubts, please refer to this **README.md** file.
+
+##How does Main.py takes care of variable number of arguments
 
 Main.py is capable of receiving variable number of arguments from the user and uses **argparse** module to recieve commmand line arguments and uses a dispatcher to pass these to appropriate static methods of the  **SalaryCalculator** class.
 
 Rationale for using static method was to keep things simple as these methods do not need to access any object specific attributes and are sufficient to perform operations on DB without any object dependency.
 
 
-**What about the storage?**
+##What about the storage?
 
 Since calculation of driver's payments depend on earlier ratings submitted by customers and parameters such as distance covered along with duration of trip, these details needed to persist in a storage. For this sake of simplicity, we have chosen local sqlite file which has 2 tables. Below is the schema for these tables
 
@@ -77,11 +81,11 @@ CREATE TABLE "RIDE_DETAILS" (
 
 Whenever the main.py is executed by the user, utility checks if a local storage exists already or not. If it does not, then a database file is created automatically and saved on disk with appropriate tables. For the sake of simplicity, we are saving the DB file in the project folder itself.
 
-**Unittests**
+##Unittests
 
 Project folder also consists of unittests and to run these tests, we can directly use Pycharm's functionality to run the tests. One of the caveat's with unit tests is that it can fail if the database does not exist. In such case, if user enters commands in section **# How to use this utility ?**, then few sample enteries will be created and re-execution of the unitests will not result in failure.
 
 
-**Assumptions**
+##Assumptions
 
 Since this DRIVER_RATING table does not have ride details so each time driver's payment calculation is done, it searches for all the instances when driver has been given rating of 5 irrespective of the month so in essence the driver is compensated for all his historical ratings as well each month. The advantage of such system is- better driver's rating is, better his/her compensation which can result increasing the service quality of car hailing company.
