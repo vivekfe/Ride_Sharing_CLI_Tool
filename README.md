@@ -14,7 +14,9 @@ This utility has been written for calculating monthly driver payments for a raid
 
 # How to use this utility ?
 
-This utility is simple and straightforward to use. Unzip the file directly and it should result in a folder **pyquant-exercise-2022**.
+As of the date of completion of this utility, author used  **Python 3.8.5** on win32 however since this does use any system calls, this utility should run on any other platform as well.
+
+To use this, Unzip the file directly and it should result in a folder **pyquant-exercise-2022**.
 Open this project into Pycharm or any other Python IDE. **Main.py** file implements the usage of this file.
 
 If you are using a virtual environment, then please make sure below modules are installed or else install them using pip.
