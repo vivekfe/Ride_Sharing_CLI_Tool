@@ -5,7 +5,7 @@ from utils import pretty_print
 
 class DatabaseManager:
     def __init__(self, db_name):
-        self.db_name = db_name
+        self.db_name: str = db_name
         self.conn = None
         self.create_database_if_not_exists()
 

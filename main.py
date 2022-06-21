@@ -13,8 +13,9 @@ parser.add_argument('--ride_id', help="ID Number of the ride", type=int, default
 parser.add_argument('--time_taken', help="time taken to finish the ride", type=int, default=None)
 parser.add_argument('--distance', help="total distance covered in the ride", type=int, default=None)
 parser.add_argument('--rating', help="rating given by customer", type=int, default=None)
-parser.add_argument('--period_start', help="start of the month", type=str, default=None)
-parser.add_argument('--period_end', help="end of the month", type=str, default=None)
+parser.add_argument('--period_start', help="start of the duration, usually start of the month", type=str, default=None)
+parser.add_argument('--period_end', help="end of the duration, usually end of the month", type=str, default=None)
+
 command_args = parser.parse_args()
 operation_type = command_args.operation_type
 ride_date = command_args.ride_date
