@@ -1,6 +1,5 @@
-# PyQuant Exercise 2022
+# Ride Sharing Program implementation in Python
 
-Quant Dev Exercise
 
 ## Project Description
 
